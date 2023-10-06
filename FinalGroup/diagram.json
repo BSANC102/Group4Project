@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": -18.5,
+      "left": 122.85,
+      "rotate": 90,
+      "attrs": { "env": "micropython-20230426-v1.20.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -147.6,
+      "left": 138.2,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -53.65,
+      "left": 182.4,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 179,
+      "left": -105.6,
+      "attrs": { "color": "green", "bounce": "0" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 227,
+      "left": -9.6,
+      "attrs": { "color": "red", "bounce": "0" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd2",
+      "top": 44.8,
+      "left": 485.6,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": 374.4,
+      "left": 242.78,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring1",
+      "top": -172.16,
+      "left": 289.19,
+      "attrs": { "pixels": "16" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -86.4, "left": 105, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 230.4, "left": -48.6, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": 297.6, "left": 47.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": -53.21, "left": 460.63, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd5", "top": 470.4, "left": 57, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 338.4,
+      "left": 88.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -128.4,
+      "left": -53.8,
+      "attrs": { "color": "red" }
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir2", "top": 282.4, "left": 405.42, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd6", "top": 355.2, "left": 191.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd7", "top": 412.8, "left": 489, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -82.45,
+      "left": 0,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd8", "top": -67.2, "left": -77.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd9", "top": -9.6, "left": 508.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "r1:2", "pico:GP0", "blue", [ "v-24.05", "h264.08" ] ],
+    [ "led1:A", "r1:1", "blue", [ "v0" ] ],
+    [ "btn1:1.r", "pico:GP10", "green", [ "h9.8", "v-192", "h152.85" ] ],
+    [ "pir1:VCC", "pico:3V3", "cyan", [ "v-38.4", "h-86.4" ] ],
+    [ "pir1:OUT", "pico:GP28", "cyan", [ "v-57.6", "h-38.26", "v-28.8", "h-57.6" ] ],
+    [ "ring1:VCC", "pico:3V3", "orange", [ "v4.23", "h-57.6", "v158.97", "h-87.15" ] ],
+    [ "pico:GP17", "ring1:DIN", "orange", [ "v49.2", "h288" ] ],
+    [ "bz1:1", "gnd5:GND", "magenta", [ "v0" ] ],
+    [ "bz1:2", "pico:GP19", "violet", [ "v-55.36", "h-362.66" ] ],
+    [ "led1:C", "gnd1:GND", "blue", [ "v0" ] ],
+    [ "btn1:2.r", "gnd2:GND", "green", [ "h0" ] ],
+    [ "btn2:2.l", "gnd3:GND", "red", [ "h0" ] ],
+    [ "ring1:GND", "gnd4:GND", "orange", [ "v48", "h86.4", "v0", "v-82.01" ] ],
+    [ "pir1:GND", "gnd6:GND", "cyan", [ "v0" ] ],
+    [ "btn2:1.l", "pico:GP16", "red", [ "h0" ] ],
+    [ "pir2:GND", "gnd7:GND", "gray", [ "v0" ] ],
+    [ "pir2:OUT", "pico:GP28", "gray", [ "v-115.2", "h-259.34" ] ],
+    [ "pir2:VCC", "pico:3V3", "gray", [ "v-144", "h-230.4" ] ],
+    [ "led2:A", "r2:1", "red", [ "v0" ] ],
+    [ "r2:2", "pico:GP2", "red", [ "v48", "h85.2" ] ],
+    [ "led2:C", "gnd8:GND", "red", [ "v0" ] ],
+    [ "lcd2:GND", "gnd9:GND", "black", [ "h0" ] ],
+    [ "lcd2:VCC", "pico:VBUS", "red", [ "h0" ] ],
+    [ "lcd2:SDA", "pico:GP0", "green", [ "h0" ] ],
+    [ "lcd2:SCL", "pico:GP1", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
